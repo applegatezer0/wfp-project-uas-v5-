@@ -25,12 +25,10 @@ Route::get('/profilMah', 'HomeController@profilMah');
 Route::get('/jadwalMatkulMah', 'MatakuliahController@jadwalMatkulMah');
 Route::get('/daftarKelasMah', 'HomeController@daftarKelasMah');
 Route::get('/historyPerwalian', 'HomeController@historyPerwalianMah');
-//Route::get('/transkripMah', 'MatakuliahController@transkrip');
 Route::get('/transkripMah/{id}', 'MatakuliahController@show');
-
 Route::get('/informasiMatkul', 'MatakuliahController@informasiMatkul');
-Route::get('/inputMatkulBaru', 'MatakuliahController@inputMatkulBaru');
-Route::get('/simpanMatkulBaru', 'MatakuliahController@store');
+Route::get('/detailInformasiMatakuliah/{id}', 'MatakuliahController@detailInformasiMatkul');
+Route::get('/inputMatkulBaru', 'HomeController@inputMatkulBaru');
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
 //atau
