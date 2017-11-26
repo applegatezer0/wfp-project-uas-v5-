@@ -27,6 +27,8 @@ Route::get('/daftarKelasMah', 'HomeController@daftarKelasMah');
 Route::get('/historyPerwalian', 'HomeController@historyPerwalianMah');
 Route::get('/transkripMah/{id}', 'MatakuliahController@show');
 Route::get('/informasiMatkul', 'MatakuliahController@informasiMatkul');
+Route::get('/inputMatkulBaru', 'MatakuliahController@inputMatkulBaru');
+Route::get('/simpanMatkulBaru', 'MatakuliahController@store');
 Route::get('/detailInformasiMatakuliah/{id}', 'MatakuliahController@detailInformasiMatkul');
 Route::get('/inputMatkulBaru', 'HomeController@inputMatkulBaru');
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
