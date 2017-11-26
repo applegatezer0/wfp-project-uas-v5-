@@ -47,30 +47,13 @@
                     ?>
                     <td>{{$no}}</td>
                     <td>{{$matakuliah->kode_matakuliah}}</td>
-                    <td><a href="">{{$matakuliah->nama}}</a></td>
+                    <td><a href="{{ url('detailInformasiMatakuliah/'.$matakuliah->kode_matakuliah) }}">{{$matakuliah->nama}}</a></td>
                     <td>{{$matakuliah->sks}}</td>
                     <td>{{$matakuliah->status}}</td>
                     <td>{{$matakuliah->jumlah_kelas}}</td>
 
                   </tr>
                 @endforeach
-                <!-- <tr>
-                  <td>1</td>
-                  <td>160A4101</td>
-                  <td><a href="{{ url('home') }}">Algoritma Pemrograman</a></td>
-                  <td>1</td>
-                  <td>Buka</td>
-                  <td>6</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>160A4102</td>
-                  <td><a href="{{ url('home') }}">Pengantar Informatika</a></td>
-                  <td>1</td>
-                  <td>Buka</td>
-                  <td>2</td>
-                </tr> -->
-                
               </tbody>  
             </table>
           </div>  
