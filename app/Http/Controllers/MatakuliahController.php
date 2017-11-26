@@ -39,6 +39,13 @@ class MatakuliahController extends Controller
         $arrayData = array($jadwals, $ruangans, $jurusans);
         return view('karyawan.InputMatkul',['arrayData'=>$arrayData]);
     }
+
+    public function transkrip()
+    {
+        $id = Auth::user()->id;
+        DB::table('mahasiswas')->where('mahasiswas.user_id',$id)->get();
+        show($id);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -59,14 +66,13 @@ class MatakuliahController extends Controller
     public function store(Request $request)
     {
         //
-        $
         $matakuliahs = new Matakuliah(
             array(
-                'nama' => $request->get('nama'),
-                'deskripsi' => $request->get('deskripsi')
+                'kode_matakuliah' => $request->get('kode'),
+                'nama' => $request->get('nama'),'sks'=>$request->get('sks'),'kp'=>$request->get('kp'),'jurusan_id'=>$request->get('jurusan'),'jadwal_id'=>$request->get('jadwal1'),'ruangan_id'=>$request->get('ruangan1')
                 )
             );
-        $kategori->save();
+        $matakuliahs->save();
         return redirect('/inputMatkulBaru')
         ->with('status', 'Matkul dengan nama '
             .' sudah berhasil disimpan');
@@ -83,7 +89,7 @@ class MatakuliahController extends Controller
     {
         //
         $matakuliahs = DB::table('mahasiswas_ambil_mata_kuliahs')->join('mata_kuliahs','mahasiswas_ambil_mata_kuliahs.mata_kuliah_id','=','mata_kuliahs.id')->where([
-            ['mahasiswas_ambil_mata_kuliahs.mahasiswa_id',1],['mahasiswas_ambil_mata_kuliahs.status','Selesai']])->get();
+            ['mahasiswas_ambil_mata_kuliahs.mahasiswa_id',$id],['mahasiswas_ambil_mata_kuliahs.status','Selesai']])->get();
         return view ('mahasiswa.transkrip', ['matakuliahs' => $matakuliahs]);
     }
 

@@ -54,6 +54,16 @@
                             <td><input type="text" name="sks" size="2"></td>
                           </tr>
                           <tr>
+                            <td align="right"><b>Jurusan</b></td>
+                            <td><select name="jurusan">
+                              @foreach($arrayData[2] as $jurusan)
+                              <option value="{{$jurusan->id}}">
+                                {{$jurusan->nama}}
+                              </option>
+                              @endforeach
+                            </select></td>
+                          </tr>
+                          <tr>
                             <td align="right"><b>KP:</td>
                             <td><input type="text" name="kp" size="2"></td>
                           </tr>
@@ -62,46 +72,39 @@
                               <b>Jadwal 1: 
                             </td>
                             <td>
-                              <select name='hari1'>
-                                <option value="senin">Senin</option>
-                                <option value="senin">Selasa</option>
-                                <option value="senin">Rabu</option>
-                                <option value="senin">Kamis</option>
-                                <option value="senin">Jumat</option>
-                                <option value="senin">Sabtu</option>
+
+                              <select name='jadwal1'>
+                                 @foreach($arrayData[0] as $jadwal)
+                                <option value="{{$jadwal->id}}">{{$jadwal->hari}}, {{$jadwal->jam_mulai}} - {{$jadwal->jam_selesai}}</option>
+                                @endforeach
                               </select>
                             </td>
                             <td align="right">
-                              <b>Hari 2: 
+                              <b>Jadwal 2: 
                             </td>
                             <td>
-                              <select name='hari2'>
-                                <option value="senin">Senin</option>
-                                <option value="senin">Selasa</option>
-                                <option value="senin">Rabu</option>
-                                <option value="senin">Kamis</option>
-                                <option value="senin">Jumat</option>
-                                <option value="senin">Sabtu</option>
+                              <select name='jadwal2'>
+                                @foreach($arrayData[0] as $jadwal)
+                                <option value="{{$jadwal->id}}">{{$jadwal->hari}}, {{$jadwal->jam_mulai}} - {{$jadwal->jam_selesai}}</option>
+                                @endforeach
                               </select>
                             </td>
                           </tr>
                           <tr>
-                            <td align="right"><b>Jam Mulai Hari 1: </td>
-                            <td><input type="text" name="mulai1" size="6"></td>
-                            <td align="right"><b>Jam Mulai Hari 2: </td>
-                            <td><input type="text" name="mulai2" size="6"></td>
-                          </tr>
-                          <tr>
-                            <td align="right"><b>Jam Selesai Hari 1: </td>
-                            <td><input type="text" name="selesai1" size="6"></td>
-                            <td align="right"><b>Jam Selesai Hari 2: </td>
-                            <td><input type="text" name="selesai2" size="6"></td>
-                          </tr>
-                          <tr>
                             <td align="right"><b>Ruangan 1:</td>
-                            <td><input type="text" name="ruangan1" size="6"></td>
+                            <td><select name="ruangan1">
+                                @foreach($arrayData[1] as $ruangan)
+                                <option value="{{$ruangan->id}}">{{$ruangan->nama}}</option>
+                                @endforeach
+                            </select>
+                            </td>
                             <td align="right"><b>Ruangan 2:</td>
-                            <td><input type="text" name="ruangan2" size="6"></td>
+                            <td><select name="ruangan2">
+                              @foreach($arrayData[1] as $ruangan)
+                                <option value="{{$ruangan->id}}">{{$ruangan->nama}}</option>
+                                @endforeach
+                            </select>
+                          </td>
                           </tr>
 
                         

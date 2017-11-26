@@ -82,6 +82,10 @@
     </div>
 
     @if(Auth::user())
+    <?php
+        $id = Auth::user()->id;
+    ?>
+    
     <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <!-- <div class="sidebar-head">
@@ -107,7 +111,7 @@
                         <a href="{{ url('jadwalMatkulMah') }}" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Jadwal Matakuliah</a>
                     </li>
                     <li>
-                        <a href="{{ url('transkripMah/'{{Auth::user()->id}}) }}" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Transkrip</a>
+                        <a href="{{ url('transkripMah/1')}}" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Transkrip</a>
                     </li>
                     <li>
                         <a href="{{ url('historyPerwalian') }}" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>History Perwalian</a>
