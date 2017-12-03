@@ -71,17 +71,31 @@ class MatakuliahController extends Controller
     public function store(Request $request)
     {
         //
-         $matakuliahs = new Matakuliah(
-            array(
+        if(!$request->get('jadwal2'))
+        {
+             $matakuliahs = new Matakuliah(
+            array('nama'=>$request->get('nama'),
                 'kode_matakuliah' => $request->get('kode'),
-                'nama' => $request->get('nama'),'sks'=>$request->get('sks'),'kp'=>$request->get('kp'),'jurusan_id'=>$request->get('jurusan'),'jadwal_id'=>$request->get('jadwal1'),'ruangan_id'=>$request->get('ruangan1')
+                'sks'=>$request->get('sks'),'kp'=>$request->get('kp'),'semester'=>$request->get('semester'),'status'=>$request->get('status'),'kapasitas'=>$request->get('kapasitas'),'sisa'=>$request->get('kapasitas'),'jurusan_id'=>$request->get('jurusan'),'jadwal_id'=>$request->get('jadwal1'),'ruangan_id'=>$request->get('ruangan1')
                 )
             );
+        }
+        else
+        {
+             $matakuliahs = new Matakuliah(
+            array(['nama'=>$request->get('nama'),
+                'kode_matakuliah' => $request->get('kode'),
+                'sks'=>$request->get('sks'),'kp'=>$request->get('kp'),'semester'=>$request->get('semester'),'status'=>$request->get('status'),'kapasitas'=>$request->get('kapasitas'),'sisa'=>$request->get('kapasitas'),'jurusan_id'=>$request->get('jurusan'),'jadwal_id'=>$request->get('jadwal1'),'ruangan_id'=>$request->get('ruangan1')], 
+                ['nama'=>$request->get('nama'),
+                'kode_matakuliah' => $request->get('kode'),
+                'sks'=>$request->get('sks'),'kp'=>$request->get('kp'),'semester'=>$request->get('semester'),'status'=>$request->get('status'),'kapasitas'=>$request->get('kapasitas'),'sisa'=>$request->get('kapasitas'),'jurusan_id'=>$request->get('jurusan'),'jadwal_id'=>$request->get('jadwal2'),'ruangan_id'=>$request->get('ruangan2')]
+                )
+            );
+        }
         $matakuliahs->save();
-        return redirect('/inputMatkulBaru')
+        return redirect('/simpanMatkulBaru')
         ->with('status', 'Matkul dengan nama '
             .' sudah berhasil disimpan');
-        
     }
 
     /**
