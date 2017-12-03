@@ -27,7 +27,7 @@
                 <div class="table-responsive">  
                     
                     <div class="form" align="center">
-                      <form method="post" action="{{url('/simpanMatkulBaru')}}">
+                      <form method="post" action="{{url('/matakuliah')}}">
                         @foreach ($errors->all() as $error) 
                           <div style="background-color: red; color: white; margin-bottom: 1px">
                           {{ $error }}
@@ -51,7 +51,7 @@
                           </tr>
                           <tr>
                             <td align="right"><b>SKS: </td>
-                            <td><input type="text" name="sks" size="2"></td>
+                            <td><input type="number" name="sks" size="2" min="1" max="10"></td>
                           </tr>
                           <tr>
                             <td align="right"><b>Jurusan</b></td>
@@ -62,6 +62,31 @@
                               </option>
                               @endforeach
                             </select></td>
+                          </tr>
+                          <tr>
+                            <td align="right"><b>Semester</b></td>
+                            <td><input type="number" name="semester" min="1" max="8"></td>
+                          </tr>
+                          <tr>
+                            <td align="right"><b>Jumlah Kelas</b></td>
+                            <td><input type="number" name="jumlahKelas" min="1" max="10"></td>
+                          </tr>
+                          <tr>
+                            <td align="right"><b>Status</b></td>
+                            <td>
+                                <select name="status">
+                                  <option value="buka">
+                                    Buka
+                                  </option>
+                                  <option value="tutup">
+                                    Tutup
+                                  </option>
+                                </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="right"><b>Kapasitas</b></td>
+                            <td><input type="number" name="kapasitas" min="1" max="100"></td>
                           </tr>
                           <tr>
                             <td align="right"><b>KP:</td>
@@ -79,7 +104,7 @@
                                 @endforeach
                               </select>
                             </td>
-                            <td align="right">
+                            <!-- <td align="right">
                               <b>Jadwal 2: 
                             </td>
                             <td>
@@ -88,7 +113,7 @@
                                 <option value="{{$jadwal->id}}">{{$jadwal->hari}}, {{$jadwal->jam_mulai}} - {{$jadwal->jam_selesai}}</option>
                                 @endforeach
                               </select>
-                            </td>
+                            </td> -->
                           </tr>
                           <tr>
                             <td align="right"><b>Ruangan 1:</td>
@@ -98,13 +123,13 @@
                                 @endforeach
                             </select>
                             </td>
-                            <td align="right"><b>Ruangan 2:</td>
+                           <!--  <td align="right"><b>Ruangan 2:</td>
                             <td><select name="ruangan2">
                               @foreach($arrayData[1] as $ruangan)
                                 <option value="{{$ruangan->id}}">{{$ruangan->nama}}</option>
                                 @endforeach
                             </select>
-                          </td>
+                          </td> -->
                           </tr>
 
                         
